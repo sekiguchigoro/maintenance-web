@@ -30,7 +30,7 @@ function App() {
     const authToken = localStorage.getItem('adminAuthToken');
 
     if (!authToken) {
-      return <Navigate to="/admin/login" replace />;
+      return <Navigate to="/maintenance" replace />;
     }
 
     return children;
@@ -41,7 +41,7 @@ function App() {
       <div className="App">
         <Routes>
           {/* ログイン */}
-          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/maintenance" element={<AdminLogin />} />
 
           {/* お知らせ管理 */}
           <Route
@@ -191,10 +191,10 @@ function App() {
           />
 
           {/* デフォルトリダイレクト */}
-          <Route path="/" element={<Navigate to="/admin/login" replace />} />
+          <Route path="/" element={<Navigate to="/maintenance" replace />} />
           <Route
             path="/admin"
-            element={<Navigate to="/admin/login" replace />}
+            element={<Navigate to="/maintenance" replace />}
           />
         </Routes>
       </div>
