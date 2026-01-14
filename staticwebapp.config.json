@@ -1,28 +1,24 @@
 {
   "routes": [
-    // /maintenance/* のリクエストに対しては /index.html を返す
-    // ただし、静的ファイルへの直接アクセスは navigationFallback の exclude で処理する
     {
-      "route": "/maintenance/index.html", // /maintenance/index.html への直接アクセスも React Router で処理
-      "serve": "/index.html"
+      "route": "/maintenance/static/*",
+      "rewrite": "/static/{*}" 
     },
     {
-      "route": "/maintenance/*", // /maintenance/ 以下すべてのパスを /index.html に書き換える
+      "route": "/maintenance/manifest.json",
+      "rewrite": "/manifest.json"
+    },
+    {
+      "route": "/maintenance/*",
       "rewrite": "/index.html"
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html", // SPAの場合、見つからないパスは基本的に index.html にフォールバック
-    "exclude": [
-      "/*.{css,scss,js,jsx,ts,tsx,png,jpg,jpeg,gif,ico,svg,webfont,webp,avif,txt,xml,json,webmanifest}", // 拡張子を詳細に指定
-      "/static/*",       // Reactアプリのビルド成果物である /static/ は除外
-      "/assets/*",       // もし assets ディレクトリを使用しているなら除外
-      "/maintenance"     // /maintenance ルートへのアクセス自体も除外
-    ]
+    "rewrite": "/index.html"
   },
   "responseOverrides": {
     "404": {
-      "rewrite": "/index.html" // 404エラーも index.html を返す
+      "rewrite": "/index.html"
     }
   }
 }
