@@ -1,28 +1,22 @@
 {
   "routes": [
-    // /maintenance/* のリクエストをすべて /maintenance/index.html に書き換える
-    // React Router がその後のルーティングを処理するように
     {
       "route": "/maintenance/*",
-      "rewrite": "/maintenance/index.html",
-      "statusCode": 200
+      "rewrite": "/maintenance/index.html" // statusCode: 200 を削除
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html", // Static Web Appsのルートにある index.html を指す
+    "rewrite": "/index.html",
     "exclude": [
-      // /maintenance 配下にある静的アセットを直接除外する
-      // Static Web Appsのファイルシステム上では、それらは /static/* などとして配置される
-      "/static/*",                     // Reactが吐き出すJS/CSS/メディアファイル
-      "/assets/*",                     // もし assets ディレクトリがある場合
-      "*.{png,jpg,jpeg,gif,css,js,ico,xml,json,webmanifest}", // ルートにあるその他のファイル（manifest.jsonはここで除外される）
-      "/maintenance"                   // /maintenance ルートへのリクエスト自体も除外
+      "/static/*",
+      "/assets/*",
+      "*.{png,jpg,jpeg,gif,css,js,ico,xml,json,webmanifest}",
+      "/maintenance"
     ]
   },
   "responseOverrides": {
     "404": {
-      "rewrite": "/index.html", // Static Web Appsのルートにある index.html を指す
-      "statusCode": 200
+      "rewrite": "/index.html" // statusCode: 200 を削除
     }
   }
 }
