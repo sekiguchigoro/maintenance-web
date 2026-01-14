@@ -69,7 +69,7 @@ function PurchaseHistoryList() {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuthToken');
-    navigate('/admin/login');
+    navigate('/');
   };
 
   const handleInputChange = (e) => {

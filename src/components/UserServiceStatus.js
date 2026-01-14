@@ -49,7 +49,7 @@ function UserServiceStatus() {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuthToken');
-    navigate('/admin/login');
+    navigate('/');
   };
 
   const handleStatusChange = (id, newStatus) => {

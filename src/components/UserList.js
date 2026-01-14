@@ -88,7 +88,7 @@ function UserList() {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuthToken');
-    navigate('/admin/login');
+    navigate('/');
   };
 
   const handleSearch = () => {

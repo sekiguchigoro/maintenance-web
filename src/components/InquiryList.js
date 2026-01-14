@@ -41,7 +41,7 @@ function InquiryList() {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuthToken');
-    navigate('/admin/login');
+    navigate('/');
   };
 
   const handleStatusUpdate = (id, newStatus) => {

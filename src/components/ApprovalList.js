@@ -45,7 +45,7 @@ function ApprovalList() {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuthToken');
-    navigate('/admin/login');
+    navigate('/');
   };
 
   const handleViewDetail = (approval) => {

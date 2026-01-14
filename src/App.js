@@ -30,18 +30,18 @@ function App() {
     const authToken = localStorage.getItem('adminAuthToken');
 
     if (!authToken) {
-      return <Navigate to="/maintenance" replace />;
+      return <Navigate to="/" replace />;
     }
 
     return children;
   };
 
   return (
-    <Router>
+    <Router basename="/maintenance">
       <div className="App">
         <Routes>
           {/* ログイン */}
-          <Route path="/maintenance" element={<AdminLogin />} />
+          <Route path="/" element={<AdminLogin />} />
 
           {/* お知らせ管理 */}
           <Route
@@ -190,12 +190,8 @@ function App() {
             }
           />
 
-          {/* デフォルトリダイレクト */}
-          <Route path="/" element={<Navigate to="/maintenance" replace />} />
-          <Route
-            path="/admin"
-            element={<Navigate to="/maintenance" replace />}
-          />
+          {/* キャッチオール - すべての不明なルートをログインにリダイレクト */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>

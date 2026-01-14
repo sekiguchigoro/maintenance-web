@@ -24,7 +24,7 @@ function UserEdit() {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuthToken');
-    navigate('/admin/login');
+    navigate('/');
   };
 
   const handleSubmit = (e) => {
