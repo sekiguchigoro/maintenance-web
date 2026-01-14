@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <Router basename="/maintenance">
+    <Router>
       <div className="App">
         <Routes>
           {/* ログイン */}
