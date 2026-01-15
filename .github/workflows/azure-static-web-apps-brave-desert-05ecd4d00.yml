@@ -20,7 +20,7 @@ jobs:
           submodules: true
           lfs: false
       - name: Build App
-        run: /
+        run: |
           npm install
           npm run build
         working-directory: ${{ github.workspace }}${{ vars.APP_LOCATION }} # アプリのルートディレクトリで実行
