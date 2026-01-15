@@ -4,7 +4,10 @@
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/static/*", "*.{css,js,png,jpg,gif,ico,xml,txt,svg}", "/manifest.json"] 
+    "exclude": [
+      "/static/*", 
+      "*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot,json,html,xml,txt}"
+    ] 
   },
   "responseOverrides": {
     "404": {
