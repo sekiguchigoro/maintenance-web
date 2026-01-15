@@ -1,24 +1,15 @@
 {
   "routes": [
-    {
-      "route": "/maintenance/static/*",
-      "rewrite": "/static/{*}" 
-    },
-    {
-      "route": "/maintenance/manifest.json",
-      "rewrite": "/manifest.json"
-    },
-    {
-      "route": "/maintenance/*",
-      "rewrite": "/index.html"
-    }
+ 
   ],
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/static/*", "*.{css,js,png,jpg,gif,ico,xml,txt,svg}", "/manifest.json"] 
   },
   "responseOverrides": {
     "404": {
-      "rewrite": "/index.html"
+      "rewrite": "/index.html",
+      "statusCode": 200 
     }
   }
 }
