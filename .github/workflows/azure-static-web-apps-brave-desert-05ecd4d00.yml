@@ -44,7 +44,8 @@ jobs:
           ###### End of Repository/Build Configurations ######
           skip_app_build: true
           config_file_location: "/"
-          
+          app_artifact_location: "build"
+
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
