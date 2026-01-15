@@ -28,24 +28,19 @@ jobs:
         env:
           CI: false
 
-      - name: Build And Deploy
+      - name: Deploy Static Web App
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         env:
           CI: false
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BRAVE_DESERT_05ECD4D00 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} 
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          # アプリのロケーションを'build'フォルダ（最終成果物）にする
           app_location: "build" # App source code path
           api_location: "api" # Api source code path - optional
-          # output_location: "build" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
           skip_app_build: true
-          # config_file_location: "/staticwebapp.config.json"
-          # app_artifact_location: "build"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
