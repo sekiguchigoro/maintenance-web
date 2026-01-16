@@ -38,8 +38,10 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} 
           action: "upload"
           # アプリのロケーションを'build'フォルダ（最終成果物）にする
-          app_location: "build" # App source code path
-          api_location: "api" # Api source code path - optional
+          app_location: "/" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "build" # ビルド成果物が出力されるディレクトリ名 (例: Reactアプリの 'build' フォルダ)
+          app_build_command: "CI=false npm run build" # アプリケーションをビルドするためのコマンド
           skip_app_build: true
 
   close_pull_request_job:
